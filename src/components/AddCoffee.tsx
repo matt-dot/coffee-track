@@ -1,23 +1,37 @@
-export {}
 // /** Here we establish the SPA frontend and the date to send to the backend */
+import { Field, Form, Formik, FormikHelpers } from 'formik';
+import * as React from 'react';
+import '../styles/AddCoffee.css'
 
-// export interface coffeeData {
-//     type: "espresso" | "americano" | "latte",
-//     time: Date,
-// }
+export interface CoffeeData {
+    type: 'espresso' | 'americano' | 'latte' | ''
+    rating: 'good' | 'medium' | 'bad' | '',
+}
+// Use formik to handle forms
+const CoffeeComponent = () => {
+    return (
+        <div className='coffee-div'>
+            <h1>Enter your coffee stuff</h1>
+            <Formik
+                initialValues={{ type: '', rating: '' }}
+                onSubmit={(
+                    values: CoffeeData,
+                    { setSubmitting }: FormikHelpers<CoffeeData>
+                ) => {
+                    // Call a nice function to submit the data
+                }}
+            >
+                <Form>
+                    <label className='label' htmlFor='type'>Type</label>
+                    <Field id='type' name='type' placeholder='espresso'></Field>
+                    <label className='label' htmlFor='rating'>Rating</label>
+                    <Field id='rating' name='rating' placeholder='medium'></Field>
+                    <button className='button' type='submit'>Submit</button>
+                </Form>
+            </Formik>
+        </div>
 
-// const sendSomeData = (someData: coffeeData) => {
-//     // Establish a connection to the backend POST endpoint
-// }
+    );
+};
 
-// const coffeeComponent = () => {
-//    // Don't be useless at react here
-// }
-
-// const showSomeNiceStats = () => {
-//     // Show something about coffee numbers
-// }
-
-// const spa = () => {
-//     // Render stuff here
-//
+export default CoffeeComponent;
