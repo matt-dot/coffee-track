@@ -19,6 +19,8 @@ const CoffeeComponent = () => {
                     { setSubmitting }: FormikHelpers<CoffeeData>
                 ) => {
                     // Call a nice function to submit the data
+                    // Could we use an RPC interface here.
+                    // Pass in the data which calls a function in the backend
                 }}
             >
                 <Form>
